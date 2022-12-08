@@ -1,0 +1,32 @@
+.button {
+  border: none;
+  padding: 16px 24px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+
+  transition: all 150ms ease-in-out;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.next {
+  background-color: var(--marine-blue);
+  color: var(--white);
+
+  &:hover {
+    filter: brightness(110%);
+  }
+}
+
+.back {
+  background-color: transparent;
+  color: var(--cool-gray);
+
+  &:hover {
+    cursor: pointer;
+    color: var(--marine-blue);
+  }
+}

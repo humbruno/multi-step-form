@@ -1,0 +1,56 @@
+.title {
+  font-weight: 700;
+  font-size: 1.625rem;
+
+  color: var(--marine-blue);
+}
+
+.description {
+  font-weight: 400;
+  font-size: 1rem;
+
+  color: var(--cool-gray);
+  margin-top: 20px;
+}
+
+.form {
+  margin-top: 40px;
+  margin-bottom: 90px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--marine-blue);
+}
+
+.input {
+  border-radius: 8px;
+  border: 1px solid var(--light-gray);
+  padding: 17px;
+  color: var(--marine-blue);
+
+  &::placeholder {
+    font-weight: 500;
+    font-size: 0.875rem;
+    color: var(--cool-gray);
+  }
+
+  &:focus {
+    outline: none;
+    border: 1px solid var(--marine-blue);
+  }
+}
+
+.btn {
+  display: flex;
+  justify-content: flex-end;
+}

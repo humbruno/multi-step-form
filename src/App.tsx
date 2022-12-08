@@ -1,5 +1,6 @@
 import React from 'react';
 import Container from './components/Container';
+import StepsContent from './components/StepsContent';
 import StepsPanel from './components/StepsPanel';
 import StepsProvider from './context/StepsContext';
 
@@ -8,7 +9,7 @@ const App = () => (
     <StepsProvider>
       <Container>
         <StepsPanel />
-        Vite
+        <StepsContent />
       </Container>
     </StepsProvider>
   </div>
