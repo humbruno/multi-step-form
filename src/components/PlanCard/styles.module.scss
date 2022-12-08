@@ -1,0 +1,43 @@
+.container {
+  display: flex;
+  flex-direction: column;
+
+  border-radius: 8px;
+  padding: 20px 15px;
+
+  border: 1px solid var(--light-gray);
+  min-width: 140px;
+
+  transition: all 150ms ease-in-out;
+
+  &:hover {
+    cursor: pointer;
+    border: 1px solid var(--purplish-blue);
+    background-color: var(--alabaster);
+  }
+}
+
+.selected {
+  border: 1px solid var(--purplish-blue);
+  background-color: var(--alabaster);
+}
+
+.icon {
+  width: 40px;
+  height: 40px;
+
+  margin-bottom: 50px;
+}
+
+.title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--marine-blue);
+}
+
+.price {
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: var(--cool-gray);
+  margin-top: 8px;
+}

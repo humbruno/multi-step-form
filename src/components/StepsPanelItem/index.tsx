@@ -10,11 +10,12 @@ interface PanelItemProps {
 }
 
 const StepsPanelItem = ({ step }: PanelItemProps) => {
-  const { activeStep } = useContext(StepsContext);
+  const { activeStep, setActiveStep } = useContext(StepsContext);
 
   return (
     <li className={styles.step__item}>
       <button
+        onClick={() => setActiveStep(step.number)}
         type="button"
         className={`${styles.step__button} ${
           activeStep === step.number && styles.active
