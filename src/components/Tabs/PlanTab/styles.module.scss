@@ -15,9 +15,45 @@
 
 .plan__list {
   margin-top: 40px;
+  margin-bottom: 30px;
   list-style: none;
 
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
+}
+
+.price__container {
+  display: flex;
+  justify-content: center;
+  border-radius: 8px;
+  background-color: var(--alabaster);
+
+  padding: 10px;
+  gap: 8px;
+}
+
+.label {
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--cool-gray);
+
+  display: flex;
+  gap: 25px;
+
+  transition: all 150ms ease-in-out;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.selected {
+  color: var(--marine-blue);
+}
+
+.btn {
+  margin-top: 90px;
+  display: flex;
+  justify-content: space-between;
 }

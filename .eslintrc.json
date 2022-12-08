@@ -16,6 +16,8 @@
   "rules": {
     "import/extensions": "off",
     "import/no-unresolved": "off",
+    "jsx-a11y/no-noninteractive-element-interactions": "off",
+    "jsx-a11y/click-events-have-key-events": "off",
     "react/jsx-filename-extension": "off",
     "react/function-component-definition": [
       2,

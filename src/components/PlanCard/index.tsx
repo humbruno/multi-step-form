@@ -1,5 +1,3 @@
-/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable react/require-default-props */
 import React from 'react';
 import styles from './styles.module.scss';
@@ -15,16 +13,20 @@ interface PlanCardProps {
   };
   onClick: React.Dispatch<React.SetStateAction<string | null>>;
   selected?: boolean;
+  yearly?: boolean;
 }
 
-const PlanCard = ({ element, onClick, selected }: PlanCardProps) => (
+const PlanCard = ({ element, onClick, selected, yearly }: PlanCardProps) => (
   <li
     className={`${styles.container} ${selected && styles.selected}`}
     onClick={() => onClick(element.title.toLowerCase())}
   >
     <img src={element.icon} alt="" aria-hidden="true" className={styles.icon} />
     <strong className={styles.title}>{element.title}</strong>
-    <small className={styles.price}>{element.price.monthly}</small>
+    <p className={styles.price}>
+      {yearly ? element.price.yearly : element.price.monthly}
+    </p>
+    {yearly && <small className={styles.price__yearly}>2 months free</small>}
   </li>
 );
 
