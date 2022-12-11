@@ -1,3 +1,4 @@
+/* eslint-disable react/button-has-type */
 /* eslint-disable react/require-default-props */
 import React from 'react';
 import styles from './styles.module.scss';

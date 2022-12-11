@@ -13,16 +13,23 @@ const InfoTab = () => {
 
   const dispatch = useAppDispatch();
 
-  const nameInputRef = useRef();
-  const emailInputRef = useRef();
-  const phoneInputRef = useRef();
+  const nameInputRef = useRef<HTMLInputElement>(null);
+  const emailInputRef = useRef<HTMLInputElement>(null);
+  const phoneInputRef = useRef<HTMLInputElement>(null);
 
   const handleFormSubmission = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    dispatch(addName(nameInputRef.current?.value));
-    dispatch(addEmail(emailInputRef.current?.value));
-    dispatch(addPhone(phoneInputRef.current?.value));
+    if (
+      !nameInputRef.current ||
+      !emailInputRef.current ||
+      !phoneInputRef.current
+    )
+      return;
+
+    dispatch(addName(nameInputRef.current.value));
+    dispatch(addEmail(emailInputRef.current.value));
+    dispatch(addPhone(phoneInputRef.current.value));
 
     setActiveStep(activeStep + 1);
   };
