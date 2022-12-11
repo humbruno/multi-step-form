@@ -31,7 +31,7 @@ const PlanTab = () => {
         ))}
       </ul>
       <div className={styles.price__container}>
-        <TogglePill setPriceModel={setPriceModel} />
+        <TogglePill setPriceModel={setPriceModel} pricingModel={priceModel} />
       </div>
       <div className={styles.btn}>
         <Button back onClick={() => setActiveStep(activeStep - 1)}>

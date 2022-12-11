@@ -6,6 +6,10 @@
     cursor: pointer;
     color: var(--cool-gray);
     font-weight: 500;
+
+    &.active {
+      color: var(--marine-blue);
+    }
   }
 }
 

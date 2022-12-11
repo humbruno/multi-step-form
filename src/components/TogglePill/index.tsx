@@ -4,17 +4,23 @@ import PriceModel from '~/constants/priceModel';
 import styles from './styles.module.scss';
 
 interface PillProps {
+  pricingModel: string;
   setPriceModel: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const TogglePill = ({ setPriceModel }: PillProps) => {
+const TogglePill = ({ setPriceModel, pricingModel }: PillProps) => {
   const handleClick = (priceModel: string) => {
     setPriceModel(priceModel);
   };
 
   return (
     <div className={styles.container}>
-      <label htmlFor="month">Monthly</label>
+      <label
+        htmlFor="month"
+        className={pricingModel === PriceModel.MONTHLY ? styles.active : ''}
+      >
+        Monthly
+      </label>
       <div className={styles.pill}>
         <input
           type="radio"
@@ -31,7 +37,12 @@ const TogglePill = ({ setPriceModel }: PillProps) => {
         />
         <div className={styles.dot} />
       </div>
-      <label htmlFor="year">Yearly</label>
+      <label
+        htmlFor="year"
+        className={pricingModel === PriceModel.YEARLY ? styles.active : ''}
+      >
+        Yearly
+      </label>
     </div>
   );
 };
