@@ -27,7 +27,6 @@ export const planStepSlice = createSlice({
   },
 });
 
-// Action creators are generated for each case reducer function
 export const { changePricing, selectPlan } = planStepSlice.actions;
 
 export default planStepSlice.reducer;

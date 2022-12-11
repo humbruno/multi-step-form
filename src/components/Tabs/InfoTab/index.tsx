@@ -9,13 +9,58 @@ import { useAppSelector, useAppDispatch } from '~/hooks';
 const InfoTab = () => {
   const { activeStep, setActiveStep } = useContext(StepsContext);
 
-  const { name, email, phone } = useAppSelector((state) => state.info);
-
   const dispatch = useAppDispatch();
+  const { name, email, phone } = useAppSelector((state) => state.info);
 
   const nameInputRef = useRef<HTMLInputElement>(null);
   const emailInputRef = useRef<HTMLInputElement>(null);
   const phoneInputRef = useRef<HTMLInputElement>(null);
+
+  const INPUTS = [
+    {
+      label: 'Name',
+      type: 'text',
+      name: 'name',
+      id: 'name',
+      placeholder: 'e.g. Stephen King',
+      defaultValue: name,
+      ref: nameInputRef,
+    },
+    {
+      label: 'Email Address',
+      type: 'email',
+      name: 'email',
+      id: 'email',
+      placeholder: 'e.g. stephenking@lorem.com',
+      defaultValue: email,
+      ref: emailInputRef,
+    },
+    {
+      label: 'Phone Number',
+      type: 'tel',
+      name: 'phone',
+      id: 'phone',
+      placeholder: 'e.g. +1 234 567 890',
+      defaultValue: phone,
+      ref: phoneInputRef,
+    },
+  ];
+
+  const mappedInputs = INPUTS.map((input) => (
+    <label key={input.id} htmlFor={input.id} className={styles.label}>
+      {input.label}
+      <input
+        required
+        type={input.type}
+        name={input.name}
+        id={input.id}
+        placeholder={input.placeholder}
+        className={styles.input}
+        defaultValue={input.defaultValue}
+        ref={input.ref}
+      />
+    </label>
+  ));
 
   const handleFormSubmission = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -41,45 +86,7 @@ const InfoTab = () => {
         Please provide your name, email address, and phone number.
       </p>
       <form className={styles.form} onSubmit={handleFormSubmission}>
-        <label htmlFor="name" className={styles.label}>
-          Name
-          <input
-            required
-            type="text"
-            name="name"
-            id="name"
-            placeholder="e.g. Stephen King"
-            className={styles.input}
-            defaultValue={name}
-            ref={nameInputRef}
-          />
-        </label>
-        <label htmlFor="email" className={styles.label}>
-          Email Address
-          <input
-            required
-            type="email"
-            name="email"
-            id="email"
-            placeholder="e.g. stephenking@lorem.com"
-            className={styles.input}
-            defaultValue={email}
-            ref={emailInputRef}
-          />
-        </label>
-        <label htmlFor="phone" className={styles.label}>
-          Phone Number
-          <input
-            required
-            type="tel"
-            name="phone"
-            id="phone"
-            placeholder="e.g. +1 234 567 890"
-            className={styles.input}
-            defaultValue={phone}
-            ref={phoneInputRef}
-          />
-        </label>
+        {mappedInputs}
         <div className={styles.btn}>
           <Button type="submit" next>
             Next Step

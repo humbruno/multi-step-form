@@ -15,7 +15,7 @@ const initialState: InfoStepState = {
 };
 
 export const infoStepSlice = createSlice({
-  name: 'infoStep',
+  name: 'info',
   initialState,
   reducers: {
     addName: (state, action: PayloadAction<string>) => {
@@ -30,7 +30,6 @@ export const infoStepSlice = createSlice({
   },
 });
 
-// Action creators are generated for each case reducer function
 export const { addName, addEmail, addPhone } = infoStepSlice.actions;
 
 export default infoStepSlice.reducer;
