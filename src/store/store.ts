@@ -1,9 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
-import stepsReducer from './stepsSlice';
+import infoStepReducer from './infoStepSlice';
 
 export const store = configureStore({
   reducer: {
-    steps: stepsReducer,
+    steps: infoStepReducer,
   },
 });
 

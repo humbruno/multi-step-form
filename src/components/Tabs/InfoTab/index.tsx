@@ -1,7 +1,7 @@
 import React, { useContext, useRef } from 'react';
 import Button from '~/components/Button';
 import { StepsContext } from '~/context/StepsContext';
-import { addEmail, addName, addPhone } from '~/store/stepsSlice';
+import { addEmail, addName, addPhone } from '~/store/infoStepSlice';
 import Container from '../Container';
 import styles from './styles.module.scss';
 import { useAppSelector, useAppDispatch } from '~/hooks';

@@ -1,10 +1,18 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-shadow */
 import iconArcade from '../assets/icon-arcade.svg';
 import iconAdvanced from '../assets/icon-advanced.svg';
 import iconPro from '../assets/icon-pro.svg';
 
+export enum PlanOptions {
+  ARCADE = 'Arcade',
+  ADVANCED = 'Advanced',
+  PRO = 'Pro',
+}
+
 const PLAN_CARDS = [
   {
-    title: 'Arcade',
+    title: PlanOptions.ARCADE,
     price: {
       monthly: '$9/mo',
       yearly: '$90/yr',
@@ -12,7 +20,7 @@ const PLAN_CARDS = [
     icon: iconArcade,
   },
   {
-    title: 'Advanced',
+    title: PlanOptions.ADVANCED,
     price: {
       monthly: '$12/mo',
       yearly: '$120/yr',
@@ -20,7 +28,7 @@ const PLAN_CARDS = [
     icon: iconAdvanced,
   },
   {
-    title: 'Pro',
+    title: PlanOptions.PRO,
     price: {
       monthly: '$15/mo',
       yearly: '$150/yr',

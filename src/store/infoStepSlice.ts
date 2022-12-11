@@ -2,20 +2,20 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 
-export interface StepsState {
+export interface InfoStepState {
   name: string | undefined;
   email: string | undefined;
   phone: number | string | undefined;
 }
 
-const initialState: StepsState = {
+const initialState: InfoStepState = {
   name: undefined,
   email: undefined,
   phone: undefined,
 };
 
-export const stepsSlice = createSlice({
-  name: 'steps',
+export const infoStepSlice = createSlice({
+  name: 'infoStep',
   initialState,
   reducers: {
     addName: (state, action: PayloadAction<string>) => {
@@ -31,6 +31,6 @@ export const stepsSlice = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-export const { addName, addEmail, addPhone } = stepsSlice.actions;
+export const { addName, addEmail, addPhone } = infoStepSlice.actions;
 
-export default stepsSlice.reducer;
+export default infoStepSlice.reducer;
