@@ -15,7 +15,6 @@
 
 .form {
   margin-top: 40px;
-  margin-bottom: 90px;
 
   display: flex;
   flex-direction: column;
@@ -53,4 +52,6 @@
 .btn {
   display: flex;
   justify-content: flex-end;
+
+  margin-top: 90px;
 }

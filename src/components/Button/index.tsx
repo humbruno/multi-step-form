@@ -4,14 +4,15 @@ import styles from './styles.module.scss';
 
 interface ButtonProps {
   children: React.ReactNode;
+  type: 'button' | 'reset' | 'submit' | undefined;
   next?: boolean;
   back?: boolean;
-  onClick: () => void;
+  onClick?: () => void;
 }
 
-const Button = ({ children, next, back, onClick }: ButtonProps) => (
+const Button = ({ children, next, back, onClick, type }: ButtonProps) => (
   <button
-    type="button"
+    type={type || 'button'}
     onClick={onClick}
     className={`${styles.button} ${next && styles.next} ${back && styles.back}`}
   >
