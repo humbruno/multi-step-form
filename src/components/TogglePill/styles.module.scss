@@ -1,0 +1,46 @@
+.container {
+  display: flex;
+  gap: 20px;
+
+  label {
+    cursor: pointer;
+    color: var(--cool-gray);
+    font-weight: 500;
+  }
+}
+
+.pill {
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--marine-blue);
+  padding: 4px;
+  border-radius: 16px;
+
+  height: 20px;
+  width: 40px;
+
+  position: relative;
+
+  input {
+    cursor: pointer;
+    opacity: 0;
+  }
+}
+
+.dot {
+  width: 14px;
+  height: 14px;
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  background-color: var(--white);
+  border-radius: 50%;
+
+  transition: 150ms ease-in-out;
+}
+
+.year:checked ~ .dot {
+  left: calc(
+    100% - 14px - 3px
+  ); //14px is the width of the dot, and 3px is the padding until the border of the container
+}

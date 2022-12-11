@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import Button from '~/components/Button';
 import PlanCard from '~/components/PlanCard';
+import TogglePill from '~/components/TogglePill';
 import PLAN_CARDS from '~/constants/planCards';
 import PriceModel from '~/constants/priceModel';
 import { StepsContext } from '~/context/StepsContext';
@@ -30,26 +31,7 @@ const PlanTab = () => {
         ))}
       </ul>
       <div className={styles.price__container}>
-        <label
-          htmlFor="monthly"
-          onClick={() => setPriceModel(PriceModel.MONTHLY)}
-          className={`${styles.label} ${
-            priceModel === PriceModel.MONTHLY && styles.selected
-          }`}
-        >
-          Monthly
-          <input type="radio" name="price" id="monthly" />
-        </label>
-        <label
-          htmlFor="yearly"
-          onClick={() => setPriceModel(PriceModel.YEARLY)}
-          className={`${styles.label} ${
-            priceModel === PriceModel.YEARLY && styles.selected
-          }`}
-        >
-          <input type="radio" name="price" id="yearly" />
-          Yearly
-        </label>
+        <TogglePill setPriceModel={setPriceModel} />
       </div>
       <div className={styles.btn}>
         <Button back onClick={() => setActiveStep(activeStep - 1)}>
