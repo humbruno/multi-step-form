@@ -9,7 +9,7 @@ import { useAppSelector, useAppDispatch } from '~/hooks';
 const InfoTab = () => {
   const { activeStep, setActiveStep } = useContext(StepsContext);
 
-  const { name, email, phone } = useAppSelector((state) => state.steps);
+  const { name, email, phone } = useAppSelector((state) => state.info);
 
   const dispatch = useAppDispatch();
 

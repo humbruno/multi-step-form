@@ -1,23 +1,23 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
 import PriceModel from '~/constants/priceModel';
+import { useAppDispatch, useAppSelector } from '~/hooks';
+import { changePricing } from '~/store/planStepSlice';
 import styles from './styles.module.scss';
 
-interface PillProps {
-  pricingModel: string;
-  setPriceModel: React.Dispatch<React.SetStateAction<string>>;
-}
+const TogglePill = () => {
+  const { priceModel } = useAppSelector((state) => state.plans);
+  const dispatch = useAppDispatch();
 
-const TogglePill = ({ setPriceModel, pricingModel }: PillProps) => {
-  const handleClick = (priceModel: string) => {
-    setPriceModel(priceModel);
+  const handleClick = (pricing: PriceModel) => {
+    dispatch(changePricing(pricing));
   };
 
   return (
     <div className={styles.container}>
       <label
         htmlFor="month"
-        className={pricingModel === PriceModel.MONTHLY ? styles.active : ''}
+        className={priceModel === PriceModel.MONTHLY ? styles.active : ''}
       >
         Monthly
       </label>
@@ -27,6 +27,7 @@ const TogglePill = ({ setPriceModel, pricingModel }: PillProps) => {
           name="price"
           id="month"
           onChange={() => handleClick(PriceModel.MONTHLY)}
+          checked={priceModel === PriceModel.MONTHLY}
         />
         <input
           type="radio"
@@ -34,12 +35,13 @@ const TogglePill = ({ setPriceModel, pricingModel }: PillProps) => {
           id="year"
           className={styles.year}
           onChange={() => handleClick(PriceModel.YEARLY)}
+          checked={priceModel === PriceModel.YEARLY}
         />
         <div className={styles.dot} />
       </div>
       <label
         htmlFor="year"
-        className={pricingModel === PriceModel.YEARLY ? styles.active : ''}
+        className={priceModel === PriceModel.YEARLY ? styles.active : ''}
       >
         Yearly
       </label>

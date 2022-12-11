@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
 import infoStepReducer from './infoStepSlice';
+import planStepReducer from './planStepSlice';
 
 export const store = configureStore({
   reducer: {
-    steps: infoStepReducer,
+    info: infoStepReducer,
+    plans: planStepReducer,
   },
 });
 

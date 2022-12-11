@@ -5,13 +5,15 @@ import TogglePill from '~/components/TogglePill';
 import PLAN_CARDS from '~/constants/planCards';
 import PriceModel from '~/constants/priceModel';
 import { StepsContext } from '~/context/StepsContext';
+import { useAppSelector } from '~/hooks';
 import Container from '../Container';
 import styles from './styles.module.scss';
 
 const PlanTab = () => {
   const [selectedCard, setSelectedCard] = useState<string | null>(null);
-  const [priceModel, setPriceModel] = useState<string>(PriceModel.MONTHLY);
   const { activeStep, setActiveStep } = useContext(StepsContext);
+
+  const { priceModel } = useAppSelector((state) => state.plans);
 
   return (
     <Container>
@@ -31,13 +33,21 @@ const PlanTab = () => {
         ))}
       </ul>
       <div className={styles.price__container}>
-        <TogglePill setPriceModel={setPriceModel} pricingModel={priceModel} />
+        <TogglePill />
       </div>
       <div className={styles.btn}>
-        <Button back onClick={() => setActiveStep(activeStep - 1)}>
+        <Button
+          type="button"
+          back
+          onClick={() => setActiveStep(activeStep - 1)}
+        >
           Go Back
         </Button>
-        <Button next onClick={() => setActiveStep(activeStep + 1)}>
+        <Button
+          type="button"
+          next
+          onClick={() => setActiveStep(activeStep + 1)}
+        >
           Next Step
         </Button>
       </div>
