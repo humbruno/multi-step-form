@@ -1,11 +1,10 @@
-import { useContext } from 'react';
 import STEPS from '~/constants/stepsList';
-import { StepsContext } from '~/context/StepsContext';
+import { useAppSelector } from '~/hooks';
 
 const StepsContent = () => {
-  const { activeStep } = useContext(StepsContext);
+  const { activeStep } = useAppSelector((state) => state.steps);
 
-  return STEPS[activeStep - 1].tab;
+  return STEPS.filter((step) => step.name === activeStep)[0].tab;
 };
 
 export default StepsContent;

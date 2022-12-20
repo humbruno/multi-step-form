@@ -1,14 +1,13 @@
-import React, { useContext, useRef } from 'react';
+import React, { useRef } from 'react';
 import Button from '~/components/Button';
-import { StepsContext } from '~/context/StepsContext';
 import { addEmail, addName, addPhone } from '~/store/infoStepSlice';
 import Container from '../Container';
 import styles from './styles.module.scss';
 import { useAppSelector, useAppDispatch } from '~/hooks';
+import { changeStep } from '~/store/stepsSlice';
+import { Steps } from '~/types';
 
 const InfoTab = () => {
-  const { activeStep, setActiveStep } = useContext(StepsContext);
-
   const dispatch = useAppDispatch();
   const { name, email, phone } = useAppSelector((state) => state.info);
 
@@ -75,8 +74,7 @@ const InfoTab = () => {
     dispatch(addName(nameInputRef.current.value));
     dispatch(addEmail(emailInputRef.current.value));
     dispatch(addPhone(phoneInputRef.current.value));
-
-    setActiveStep(activeStep + 1);
+    dispatch(changeStep(Steps.PLAN));
   };
 
   return (

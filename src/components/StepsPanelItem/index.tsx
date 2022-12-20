@@ -1,24 +1,28 @@
-import React, { useContext } from 'react';
-import { StepsContext } from '~/context/StepsContext';
+import React from 'react';
+import { useAppDispatch, useAppSelector } from '~/hooks';
+import { changeStep } from '~/store/stepsSlice';
+import { Steps } from '~/types';
 import styles from './styles.module.scss';
 
 interface PanelItemProps {
   step: {
     number: number;
+    name: Steps;
     text: string;
   };
 }
 
 const StepsPanelItem = ({ step }: PanelItemProps) => {
-  const { activeStep, setActiveStep } = useContext(StepsContext);
+  const { activeStep } = useAppSelector((state) => state.steps);
+  const dispatch = useAppDispatch();
 
   return (
     <li className={styles.step__item}>
       <button
-        onClick={() => setActiveStep(step.number)}
+        onClick={() => dispatch(changeStep(step.name))}
         type="button"
         className={`${styles.step__button} ${
-          activeStep === step.number && styles.active
+          activeStep === step.name && styles.active
         }`}
       >
         {step.number}

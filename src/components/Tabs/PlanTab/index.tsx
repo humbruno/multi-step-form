@@ -1,14 +1,16 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import Button from '~/components/Button';
 import PlanCard from '~/components/PlanCard';
 import TogglePill from '~/components/TogglePill';
 import PLAN_CARDS from '~/constants/planCards';
-import { StepsContext } from '~/context/StepsContext';
+import { useAppDispatch } from '~/hooks';
+import { changeStep } from '~/store/stepsSlice';
+import { Steps } from '~/types';
 import Container from '../Container';
 import styles from './styles.module.scss';
 
 const PlanTab = () => {
-  const { activeStep, setActiveStep } = useContext(StepsContext);
+  const dispatch = useAppDispatch();
 
   return (
     <Container>
@@ -28,14 +30,14 @@ const PlanTab = () => {
         <Button
           type="button"
           back
-          onClick={() => setActiveStep(activeStep - 1)}
+          onClick={() => dispatch(changeStep(Steps.INFO))}
         >
           Go Back
         </Button>
         <Button
           type="button"
           next
-          onClick={() => setActiveStep(activeStep + 1)}
+          onClick={() => dispatch(changeStep(Steps.ADDONS))}
         >
           Next Step
         </Button>

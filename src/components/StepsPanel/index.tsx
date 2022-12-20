@@ -7,7 +7,7 @@ const StepsPanel = () => (
   <nav className={styles.container}>
     <ul className={styles.steps__list}>
       {STEPS.map((item) => (
-        <StepsPanelItem step={item} key={item.number} />
+        <StepsPanelItem step={item} key={item.name} />
       ))}
     </ul>
   </nav>
