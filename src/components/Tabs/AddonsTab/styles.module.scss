@@ -12,3 +12,11 @@
   color: var(--cool-gray);
   margin-top: 20px;
 }
+
+.list {
+  margin-top: 40px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}

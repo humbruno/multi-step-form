@@ -6,7 +6,7 @@ interface ContainerProps {
 }
 
 const Container = ({ children }: ContainerProps) => (
-  <section className={styles.container}>{children}</section>
+  <main className={styles.container}>{children}</main>
 );
 
 export default Container;

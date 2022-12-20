@@ -1,0 +1,39 @@
+.container {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid var(--light-gray);
+
+  transition: all 150ms ease-in-out;
+
+  &:hover {
+    border: 1px solid var(--purplish-blue);
+    background-color: var(--alabaster);
+  }
+}
+
+.price {
+  margin-left: auto;
+
+  color: var(--purplish-blue);
+  font-size: 0.75rem;
+  font-weight: 00;
+}
+
+.label {
+  margin-left: 30px;
+}
+
+.title {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--marine-blue);
+}
+
+.description {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--cool-gray);
+  margin-top: 10px;
+}

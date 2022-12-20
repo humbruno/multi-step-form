@@ -1,4 +1,5 @@
 import React from 'react';
+import AddonsTab from '~/components/Tabs/AddonsTab';
 import InfoTab from '~/components/Tabs/InfoTab';
 import PlanTab from '~/components/Tabs/PlanTab';
 import { Steps } from '~/types';
@@ -20,7 +21,7 @@ const STEPS = [
     number: 3,
     name: Steps.ADDONS,
     text: 'Add-ons',
-    tab: <InfoTab />,
+    tab: <AddonsTab />,
   },
   {
     number: 4,
