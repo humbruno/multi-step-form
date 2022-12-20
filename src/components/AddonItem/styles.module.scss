@@ -8,6 +8,7 @@
   transition: all 150ms ease-in-out;
 
   &:hover {
+    cursor: pointer;
     border: 1px solid var(--purplish-blue);
     background-color: var(--alabaster);
   }
