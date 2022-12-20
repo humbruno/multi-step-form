@@ -9,9 +9,13 @@
 
   &:hover {
     cursor: pointer;
-    border: 1px solid var(--purplish-blue);
-    background-color: var(--alabaster);
+    transform: scale(1.03);
   }
+}
+
+.selected {
+  border: 1px solid var(--purplish-blue);
+  background-color: var(--alabaster);
 }
 
 .price {

@@ -1,4 +1,13 @@
-const ADDONS = [
+export interface Addon {
+  title: string;
+  description: string;
+  price: {
+    monthly: string;
+    yearly: string;
+  };
+}
+
+const ADDONS: Addon[] = [
   {
     title: 'Online service',
     description: 'Access to multiplayer games',
