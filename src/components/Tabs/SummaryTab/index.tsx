@@ -1,9 +1,11 @@
 /* eslint-disable consistent-return */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import React from 'react';
+import { MdRemoveCircle } from 'react-icons/md';
 import Button from '~/components/Button';
 import PriceModel from '~/constants/priceModel';
 import { useAppDispatch, useAppSelector } from '~/hooks';
+import { removeAddon } from '~/store/addonsStepSlice';
 import { changeStep } from '~/store/stepsSlice';
 import { Steps } from '~/types';
 import Container from '../Container';
@@ -43,6 +45,21 @@ const SummaryTab = () => {
   );
   const totalCost = Number(addonCost) + Number(planCost);
 
+  if (plan === undefined) {
+    return (
+      <Container>
+        <h2 className={styles.title}>Finishing up</h2>
+        <p className={styles.description}>
+          Double-check everything looks OK before confirming.
+        </p>
+        <p className={styles.planUndefined}>
+          Looks like you haven&apos;t selected a plan yet. Please do it{' '}
+          <span onClick={() => dispatch(changeStep(Steps.PLAN))}>here!</span>
+        </p>
+      </Container>
+    );
+  }
+
   return (
     <Container>
       <h2 className={styles.title}>Finishing up</h2>
@@ -72,7 +89,14 @@ const SummaryTab = () => {
           {addons.length > 0 &&
             addons.map((addon) => (
               <li className={styles.addon} key={addon.title}>
-                <small>{addon.title}</small>
+                <small>
+                  {addon.title}{' '}
+                  <MdRemoveCircle
+                    color="crimson"
+                    style={{ cursor: 'pointer' }}
+                    onClick={() => dispatch(removeAddon(addon))}
+                  />
+                </small>
                 <span>
                   {isYearlyPlanSelected
                     ? addon.price.yearly

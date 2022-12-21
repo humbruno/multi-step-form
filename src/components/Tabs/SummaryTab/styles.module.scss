@@ -73,6 +73,9 @@
 
   small {
     color: var(--cool-gray);
+    display: flex;
+    align-items: center;
+    gap: 6px;
   }
 
   span {
@@ -105,4 +108,16 @@
   margin-top: 90px;
   display: flex;
   justify-content: space-between;
+}
+
+.planUndefined {
+  margin-top: 45px;
+  color: var(--marine-blue);
+
+  span {
+    font-weight: 500;
+    text-decoration: underline;
+    color: var(--purplish-blue);
+    cursor: pointer;
+  }
 }
