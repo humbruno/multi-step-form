@@ -4,13 +4,22 @@ import iconArcade from '../assets/icon-arcade.svg';
 import iconAdvanced from '../assets/icon-advanced.svg';
 import iconPro from '../assets/icon-pro.svg';
 
-export enum PlanOptions {
+enum PlanOptions {
   ARCADE = 'Arcade',
   ADVANCED = 'Advanced',
   PRO = 'Pro',
 }
 
-const PLAN_CARDS = [
+export interface Plan {
+  title: PlanOptions;
+  price: {
+    monthly: string;
+    yearly: string;
+  };
+  icon: any;
+}
+
+const PLAN_CARDS: Plan[] = [
   {
     title: PlanOptions.ARCADE,
     price: {

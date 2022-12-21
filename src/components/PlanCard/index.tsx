@@ -1,20 +1,13 @@
 /* eslint-disable react/require-default-props */
 import React from 'react';
-import { PlanOptions } from '~/constants/planCards';
+import { Plan } from '~/constants/planCards';
 import PriceModel from '~/constants/priceModel';
 import { useAppDispatch, useAppSelector } from '~/hooks';
 import { selectPlan } from '~/store/planStepSlice';
 import styles from './styles.module.scss';
 
 interface PlanCardProps {
-  element: {
-    title: PlanOptions;
-    price: {
-      monthly: string;
-      yearly: string;
-    };
-    icon: string;
-  };
+  element: Plan;
 }
 
 const PlanCard = ({ element }: PlanCardProps) => {
@@ -22,10 +15,10 @@ const PlanCard = ({ element }: PlanCardProps) => {
   const dispatch = useAppDispatch();
 
   const isYearlyPlanSelected = priceModel === PriceModel.YEARLY;
-  const isPlanSelected = plan === element.title;
+  const isPlanSelected = plan?.title === element.title;
 
   const handleCardClick = () => {
-    dispatch(selectPlan(element.title));
+    dispatch(selectPlan(element));
   };
 
   return (

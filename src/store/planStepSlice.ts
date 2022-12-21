@@ -2,11 +2,11 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 import PriceModel from '~/constants/priceModel';
-import { PlanOptions } from '~/constants/planCards';
+import { Plan } from '~/constants/planCards';
 
 export interface PlanStepState {
   priceModel: PriceModel;
-  plan: PlanOptions | undefined;
+  plan: Plan | undefined;
 }
 
 const initialState: PlanStepState = {
@@ -21,7 +21,7 @@ export const planStepSlice = createSlice({
     changePricing: (state, action: PayloadAction<PriceModel>) => {
       state.priceModel = action.payload;
     },
-    selectPlan: (state, action: PayloadAction<PlanOptions>) => {
+    selectPlan: (state, action: PayloadAction<Plan>) => {
       state.plan = action.payload;
     },
   },
