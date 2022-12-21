@@ -36,9 +36,6 @@ const PlanCard = ({ element }: PlanCardProps) => {
       <p className={styles.price}>
         {isYearlyPlanSelected ? element.price.yearly : element.price.monthly}
       </p>
-      {isYearlyPlanSelected && (
-        <small className={styles.price__yearly}>2 months free</small>
-      )}
     </li>
   );
 };
