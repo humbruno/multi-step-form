@@ -2,6 +2,7 @@ import React from 'react';
 import AddonsTab from '~/components/Tabs/AddonsTab';
 import InfoTab from '~/components/Tabs/InfoTab';
 import PlanTab from '~/components/Tabs/PlanTab';
+import SummaryTab from '~/components/Tabs/SummaryTab';
 import { Steps } from '~/types';
 
 const STEPS = [
@@ -27,7 +28,7 @@ const STEPS = [
     number: 4,
     name: Steps.SUMMARY,
     text: 'Summary',
-    tab: <InfoTab />,
+    tab: <SummaryTab />,
   },
 ];
 

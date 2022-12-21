@@ -30,3 +30,12 @@
     color: var(--marine-blue);
   }
 }
+
+.confirm {
+  background-color: var(--purplish-blue);
+  color: var(--white);
+
+  &:hover {
+    filter: brightness(110%);
+  }
+}

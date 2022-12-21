@@ -5,8 +5,8 @@ import PriceModel from '~/constants/priceModel';
 import { PlanOptions } from '~/constants/planCards';
 
 export interface PlanStepState {
-  priceModel: PriceModel.MONTHLY | PriceModel.YEARLY;
-  plan: PlanOptions.ARCADE | PlanOptions.ADVANCED | PlanOptions.PRO | undefined;
+  priceModel: PriceModel;
+  plan: PlanOptions | undefined;
 }
 
 const initialState: PlanStepState = {

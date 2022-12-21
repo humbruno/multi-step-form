@@ -8,14 +8,24 @@ interface ButtonProps {
   type: 'button' | 'reset' | 'submit' | undefined;
   next?: boolean;
   back?: boolean;
+  confirm?: boolean;
   onClick?: () => void;
 }
 
-const Button = ({ children, next, back, onClick, type }: ButtonProps) => (
+const Button = ({
+  children,
+  next,
+  back,
+  onClick,
+  type,
+  confirm,
+}: ButtonProps) => (
   <button
     type={type || 'button'}
     onClick={onClick}
-    className={`${styles.button} ${next && styles.next} ${back && styles.back}`}
+    className={`${styles.button} ${next && styles.next} ${
+      back && styles.back
+    } ${confirm && styles.confirm}`}
   >
     {children}
   </button>
