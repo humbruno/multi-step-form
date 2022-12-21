@@ -1,6 +1,6 @@
 /* eslint-disable consistent-return */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
-import React from 'react';
+import React, { useState } from 'react';
 import { RxCross2 } from 'react-icons/rx';
 import Button from '~/components/Button';
 import PriceModel from '~/constants/priceModel';
@@ -10,6 +10,7 @@ import { changeStep } from '~/store/stepsSlice';
 import { Steps } from '~/types';
 import Container from '../Container';
 import styles from './styles.module.scss';
+import thanksIcon from '~/assets/icon-thank-you.svg';
 
 const getNumberFromPriceString = (price: string | undefined) => {
   if (!price) return;
@@ -18,6 +19,8 @@ const getNumberFromPriceString = (price: string | undefined) => {
 };
 
 const SummaryTab = () => {
+  const [summaryConfirmed, setSummaryConfirmed] = useState<boolean>(false);
+
   const { plan, priceModel } = useAppSelector((state) => state.plans);
   const { addons } = useAppSelector((state) => state.addons);
   const dispatch = useAppDispatch();
@@ -57,6 +60,20 @@ const SummaryTab = () => {
           <span onClick={() => dispatch(changeStep(Steps.PLAN))}>here!</span>
         </p>
       </Container>
+    );
+  }
+
+  if (summaryConfirmed) {
+    return (
+      <div className={styles.submitSummary}>
+        <img src={thanksIcon} alt="" aria-hidden="true" />
+        <strong>Thank you!</strong>
+        <p>
+          Thanks for confirming your subscription! We hope you have fun using
+          our platform. If you ever need support, please feel free to email us
+          at support@loremgaming.com.
+        </p>
+      </div>
     );
   }
 
@@ -120,7 +137,7 @@ const SummaryTab = () => {
         >
           Go Back
         </Button>
-        <Button type="button" confirm>
+        <Button type="button" confirm onClick={() => setSummaryConfirmed(true)}>
           Confirm
         </Button>
       </div>

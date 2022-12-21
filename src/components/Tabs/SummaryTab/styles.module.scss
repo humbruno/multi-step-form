@@ -105,7 +105,7 @@
 }
 
 .btn {
-  margin-top: 90px;
+  margin-top: 110px;
   display: flex;
   justify-content: space-between;
 }
@@ -119,5 +119,30 @@
     text-decoration: underline;
     color: var(--purplish-blue);
     cursor: pointer;
+  }
+}
+
+.submitSummary {
+  width: 100%;
+  padding: 0 130px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  strong {
+    margin-top: 40px;
+    margin-bottom: 20px;
+
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--marine-blue);
+  }
+
+  p {
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--cool-gray);
   }
 }
