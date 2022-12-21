@@ -1,5 +1,6 @@
 import React from 'react';
 import { Addon } from '~/constants/addons';
+import PriceModel from '~/constants/priceModel';
 import { useAppDispatch, useAppSelector } from '~/hooks';
 import { addAddon, removeAddon } from '~/store/addonsStepSlice';
 import styles from './styles.module.scss';
@@ -10,6 +11,10 @@ interface AddonItemProps {
 
 const AddonItem = ({ element }: AddonItemProps) => {
   const { addons } = useAppSelector((state) => state.addons);
+  const { priceModel } = useAppSelector((state) => state.plans);
+
+  const isYearlyPlanSelected = priceModel === PriceModel.YEARLY;
+
   const dispatch = useAppDispatch();
 
   const handleClick = () => {
@@ -32,13 +37,16 @@ const AddonItem = ({ element }: AddonItemProps) => {
         type="checkbox"
         name={element.title}
         id={element.title}
+        onChange={handleClick}
         checked={addons.includes(element)}
       />
       <label className={styles.label} htmlFor={element.title}>
         <h3 className={styles.title}>{element.title}</h3>
         <p className={styles.description}>{element.description}</p>
       </label>
-      <small className={styles.price}>{element.price.monthly}</small>
+      <small className={styles.price}>
+        {isYearlyPlanSelected ? element.price.yearly : element.price.monthly}
+      </small>
     </li>
   );
 };

@@ -16,12 +16,12 @@ export const addonsStepSlice = createSlice({
   initialState,
   reducers: {
     addAddon: (state, action: PayloadAction<Addon>) => {
-      state.addons = state.addons.includes(action.payload)
-        ? [...state.addons]
-        : [...state.addons, action.payload];
+      state.addons = [...state.addons, action.payload];
     },
     removeAddon: (state, action: PayloadAction<Addon>) => {
-      state.addons = state.addons.filter((item) => item !== action.payload);
+      state.addons = state.addons.filter(
+        (addon) => addon.title !== action.payload.title
+      );
     },
   },
 });
