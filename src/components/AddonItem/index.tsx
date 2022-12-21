@@ -39,6 +39,7 @@ const AddonItem = ({ element }: AddonItemProps) => {
         id={element.title}
         onChange={handleClick}
         checked={addons.includes(element)}
+        className={styles.checkbox}
       />
       <label className={styles.label} htmlFor={element.title}>
         <h3 className={styles.title}>{element.title}</h3>
