@@ -1,7 +1,7 @@
 /* eslint-disable consistent-return */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import React from 'react';
-import { MdRemoveCircle } from 'react-icons/md';
+import { RxCross2 } from 'react-icons/rx';
 import Button from '~/components/Button';
 import PriceModel from '~/constants/priceModel';
 import { useAppDispatch, useAppSelector } from '~/hooks';
@@ -91,8 +91,8 @@ const SummaryTab = () => {
               <li className={styles.addon} key={addon.title}>
                 <small>
                   {addon.title}{' '}
-                  <MdRemoveCircle
-                    color="crimson"
+                  <RxCross2
+                    color="hsl(354, 84%, 57%)"
                     style={{ cursor: 'pointer' }}
                     onClick={() => dispatch(removeAddon(addon))}
                   />
