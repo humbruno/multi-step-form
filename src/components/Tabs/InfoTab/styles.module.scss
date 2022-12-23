@@ -21,34 +21,6 @@
   gap: 20px;
 }
 
-.label {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-
-  font-size: 0.875rem;
-  font-weight: 700;
-  color: var(--marine-blue);
-}
-
-.input {
-  border-radius: 8px;
-  border: 1px solid var(--light-gray);
-  padding: 17px;
-  color: var(--marine-blue);
-
-  &::placeholder {
-    font-weight: 500;
-    font-size: 0.875rem;
-    color: var(--cool-gray);
-  }
-
-  &:focus {
-    outline: none;
-    border: 1px solid var(--marine-blue);
-  }
-}
-
 .btn {
   display: flex;
   justify-content: flex-end;

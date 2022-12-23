@@ -8,6 +8,7 @@ import { Steps } from '~/types';
 
 import Button from '~/components/Button';
 import Container from '../Container';
+import InfoInput from '~/components/InfoInput';
 
 const InfoTab = () => {
   const dispatch = useAppDispatch();
@@ -48,19 +49,7 @@ const InfoTab = () => {
   ];
 
   const mappedInputs = INPUTS.map((input) => (
-    <label key={input.id} htmlFor={input.id} className={styles.label}>
-      {input.label}
-      <input
-        required
-        type={input.type}
-        name={input.name}
-        id={input.id}
-        placeholder={input.placeholder}
-        className={styles.input}
-        defaultValue={input.defaultValue}
-        ref={input.ref}
-      />
-    </label>
+    <InfoInput key={input.id} input={input} />
   ));
 
   const handleFormSubmission = (e: React.FormEvent<HTMLFormElement>) => {
