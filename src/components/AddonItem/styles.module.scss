@@ -11,6 +11,10 @@
     cursor: pointer;
     transform: scale(1.03);
   }
+
+  @media (max-width: 760px) {
+    padding: 16px;
+  }
 }
 
 .selected {
@@ -23,7 +27,7 @@
 
   color: var(--purplish-blue);
   font-size: 0.75rem;
-  font-weight: 00;
+  font-weight: 400;
 }
 
 .label {
@@ -34,6 +38,11 @@
   font-size: 1rem;
   font-weight: 500;
   color: var(--marine-blue);
+
+  @media (max-width: 760px) {
+    font-size: 0.75rem;
+    font-weight: 700;
+  }
 }
 
 .description {
@@ -41,6 +50,12 @@
   font-weight: 500;
   color: var(--cool-gray);
   margin-top: 10px;
+
+  @media (max-width: 760px) {
+    margin-top: 6px;
+    font-size: 0.625rem;
+    font-weight: 400;
+  }
 }
 
 .checkbox {

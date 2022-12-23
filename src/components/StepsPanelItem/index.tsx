@@ -27,7 +27,7 @@ const StepsPanelItem = ({ step }: PanelItemProps) => {
       >
         {step.number}
       </button>
-      <div>
+      <div className={styles.step__info}>
         <h3 className={styles.step__header}>STEP {step.number}</h3>
         <strong className={styles.step__title}>{step.text}</strong>
       </div>

@@ -1,11 +1,13 @@
 import React, { useRef } from 'react';
-import Button from '~/components/Button';
-import { addEmail, addName, addPhone } from '~/store/infoStepSlice';
-import Container from '../Container';
 import styles from './styles.module.scss';
 import { useAppSelector, useAppDispatch } from '~/hooks';
+import { addEmail, addName, addPhone } from '~/store/infoStepSlice';
+
 import { changeStep } from '~/store/stepsSlice';
 import { Steps } from '~/types';
+
+import Button from '~/components/Button';
+import Container from '../Container';
 
 const InfoTab = () => {
   const dispatch = useAppDispatch();

@@ -32,10 +32,12 @@ const PlanCard = ({ element }: PlanCardProps) => {
         aria-hidden="true"
         className={styles.icon}
       />
-      <strong className={styles.title}>{element.title}</strong>
-      <p className={styles.price}>
-        {isYearlyPlanSelected ? element.price.yearly : element.price.monthly}
-      </p>
+      <div>
+        <strong className={styles.title}>{element.title}</strong>
+        <p className={styles.price}>
+          {isYearlyPlanSelected ? element.price.yearly : element.price.monthly}
+        </p>
+      </div>
     </li>
   );
 };
