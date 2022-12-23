@@ -30,7 +30,7 @@ body {
   justify-content: center;
 
   @media (max-width: 768px) {
-    background-image: url('src/assets/bg-sidebar-mobile.svg');
+    background-image: url('/bg-sidebar-mobile.svg');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: top;
