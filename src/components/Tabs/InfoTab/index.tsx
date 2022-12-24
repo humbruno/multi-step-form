@@ -48,10 +48,6 @@ const InfoTab = () => {
     },
   ];
 
-  const mappedInputs = INPUTS.map((input) => (
-    <InfoInput key={input.id} input={input} />
-  ));
-
   const handleFormSubmission = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -75,7 +71,9 @@ const InfoTab = () => {
         Please provide your name, email address, and phone number.
       </p>
       <form className={styles.form} onSubmit={handleFormSubmission}>
-        {mappedInputs}
+        {INPUTS.map((input) => (
+          <InfoInput key={input.id} input={input} />
+        ))}
         <div className={styles.btn}>
           <Button type="submit" next>
             Next Step

@@ -31,14 +31,13 @@ const AddonItem = ({ element }: AddonItemProps) => {
       className={`${styles.container} ${
         addons.includes(element) && styles.selected
       }`}
-      onClick={handleClick}
     >
       <input
         type="checkbox"
         name={element.title}
         id={element.title}
-        onChange={handleClick}
         checked={addons.includes(element)}
+        onChange={handleClick}
         className={styles.checkbox}
       />
       <label className={styles.label} htmlFor={element.title}>
